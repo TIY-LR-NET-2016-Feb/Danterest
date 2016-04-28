@@ -30,7 +30,7 @@ namespace Danterest2.Web.Controllers
                 CreatedOn = d.CreatedOn.Humanize(),
                 d.Description,
                 CreatedBy = d.Owner.UserName,
-                NUmOfComments = d.Comments.Count()
+                NumOfComments = d.Comments.Count()
             });
             return Json(model, JsonRequestBehavior.AllowGet);
         }
@@ -41,7 +41,7 @@ namespace Danterest2.Web.Controllers
             var dan = db.Dans.Find(danID);
             if (dan == null)
                 return HttpNotFound("No Dan Found.");
-            var model = new 
+            var model = new
             {
                 dan.PhotoUrl,
                 dan.LinkUrl,
@@ -85,7 +85,17 @@ namespace Danterest2.Web.Controllers
             db.Dans.Add(dan);
             db.SaveChanges();
 
-            return Json(dan);
+            var result = new
+            {
+                dan.PhotoUrl,
+                dan.LinkUrl,
+                DanId = dan.Id,
+                CreatedOn = dan.CreatedOn.Humanize(),
+                dan.Description,
+                CreatedBy = dan.Owner.UserName,
+                NumOfComments = dan.Comments.Count()
+            };
+            return Json(result);
         }
     }
 }

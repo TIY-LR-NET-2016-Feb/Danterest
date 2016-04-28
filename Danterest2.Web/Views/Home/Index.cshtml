@@ -4,3 +4,31 @@
 
 
 <h2>{{ 1 + 1 }}</h2>
+
+<div ng-controller="dansController">
+    <div ng-repeat="p in Pins">
+        {{ p.CreatedOn }}
+        {{ p.CreatedBy }}
+        {{ p.Description }}
+
+        {{ p.NUmOfComments }}
+
+        <a href="{{p.LinkUrl}}">
+            <img class="img-responsive img-thumbnail" style="width: 200px;" ng-src="{{ p.PhotoUrl }}" alt="" />
+
+        </a>
+
+    </div>
+
+
+    <form>
+        <div class="form-group">
+            PhotoUrl:
+            <input type="text" name="PhotoUrl" value="" ng-model="newPin.PhotoUrl" />
+        </div>
+        <div class="form-group">
+            Description: <input type="text" name="Description" value="" ng-model="newPin.Description" />
+        </div>
+        <input class="btn btn-primary" type="button" ng-click="savePin()" value="Save new Pin" />
+    </form>
+</div>
