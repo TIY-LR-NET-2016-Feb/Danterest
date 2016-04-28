@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="danterestapp" ng-cloak>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
 
 </head>
 <body>
@@ -39,6 +40,12 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-route.min.js"></script>
+
+    @Scripts.Render("~/bundles/myapp")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
